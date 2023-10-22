@@ -1,0 +1,26 @@
+modules:
+  macro:
+    - key: autogpt-hello-world
+      resource: main
+      resolver:
+        function: resolver
+      title: CodeFluence
+      description: CodeFluence is an innovative application that seamlessly integrates GitHub, ChatGPT, and Atlassian's Confluence platform to simplify your code collaboration and understanding process. With CodeFluence, you can input a GitHub repository URL within Confluence, and the app will automatically load and analyze the entire repository, creating a comprehensive onboarding document..
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  id: ari:cloud:ecosystem::app/e82371b4-5cc6-4906-bb6f-1e19f6669514
+permissions:
+  scopes:
+    - write:confluence-content
+    - storage:app
+    - write:page:confluence
+    - read:page:confluence
+  external:
+    fetch:
+      backend:
+        - codegeist.reluvate.tech
